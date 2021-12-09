@@ -1,0 +1,24 @@
+Assignment on CSE 3201
+Course Title - Operating Systems
+
+Submitted to - 
+Jakaria Rabbi
+Assistant Professor
+Department of Computer Science and Engineering
+KUET,Khulna.
+
+Submitted by - 
+Faias Satter
+Roll- 1707116
+Department of Computer Science and Engineering
+KUET,Khulna.
+ 
+Submission Date - 10-04-2021
+
+Assignment Details - 
+1. First assignment - Assignment on Fibonacci Sequence - C file uploaded in 1707116-1.c file.
+2. Second assignment - Assignment on ls Command - C file uploaded in 1707116-2.c file. The compile file is generated using 
+the "gcc 1707116-2.c" command. Then the compile file has been renamed to "myls" and moved to the bin file. The bin file was 
+accessed in the first place using the "sudo -i" command . The command to move the compile file was - "cp './home/faias/Desktop/
+Assignment/myls' './bin' ". So now, the file can run using the command "myls -l" / "myls -a" / "myls -t" . No external command
+"./myls" command is needed. Also, no ".l" is needed. 
