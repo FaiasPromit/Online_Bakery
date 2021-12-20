@@ -8,13 +8,15 @@
     <title>Bakery Shop</title>
 
     <link rel="stylesheet" type="text/css" href="./index.css" />
+    <link rel="stylesheet" type="text/css" href="./login.css" />
+   
   </head>
   <body class="body">
     <div class="header">
       <div class="header-top">
         <p>Home</p>
         <div class="header-top__links">
-          <a><div class="header-top__links--text">SHOP</div></a>
+          <a href="front_shop.php"><div class="header-top__links--text">SHOP</div></a>
           <div class="header-top__links--text">ABOUT</div>
           <div class="header-top__links--text">CART</div>
           <div class="header-top__links--text">SIGNUP</div>

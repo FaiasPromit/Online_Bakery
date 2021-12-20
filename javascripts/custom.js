@@ -1,0 +1,36 @@
+jQuery('#id_form_register').on('submit',function(e){
+  jQuery('.error_field').html('');
+  jQuery.ajax({
+    url:'front_register_submit.php',
+    type:'post',
+    data:jQuery('#id_form_register').serialize(),
+    success:function(result){
+      var data=jQuery.parseJSON(result);
+      if(data.status=='error'){
+        jQuery('#'+data.field).html(data.msg);
+      }
+      if(data.status=='success'){
+        window.location.href='front_index.php';
+      }
+    }
+  });
+  e.preventDefault();
+});
+jQuery('#frmLogin').on('submit',function(e){
+  jQuery('.login_field').html('');
+  jQuery.ajax({
+    url:'front_register_submit.php',
+    type:'post',
+    data:jQuery('#frmLogin').serialize(),
+    success:function(result){
+      var data=jQuery.parseJSON(result);
+      if(data.status=='error'){
+        jQuery('#form_login_msg').html(data.msg);
+      }
+      if(data.status=='success'){
+        window.location.href='front_index.php';
+      }
+    }
+  });
+  e.preventDefault();
+});

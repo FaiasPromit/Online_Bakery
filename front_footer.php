@@ -8,5 +8,8 @@
             <div class="footer-right__icon">Website</div>
         </div>
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="javascripts/custom.js"></script>
+
   </body>
 </html>

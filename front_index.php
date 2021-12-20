@@ -26,7 +26,7 @@ $product_res=mysqli_query($con,"select * from bakery where status=1 order by ran
                 <?php }?>
             </div>
                     
-            <div class="main-top__grid--button">View more products</div>
+            <div class="main-top__grid--button"><a href="front_shop.php">View more products</a> </div>
         </div>
 
         <div class="main-bottom">
