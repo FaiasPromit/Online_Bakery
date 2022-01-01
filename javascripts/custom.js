@@ -38,42 +38,70 @@ jQuery('#frmLogin').on('submit',function(e){
 function add_to_cart(id,type){
   var qty=jQuery('#qty'+id).val();
   var attr=id;
-  if(qty>0 ){
+  if(type=='update'){
     jQuery.ajax({
       url:'manage_cart.php',
       type:'post',
-      data:'qty='+qty+'&attr='+attr+'&type='+type,
+      data:'qty='+qty+'&attr='+attr+'&type=add',
       success:function(result){
-        // console.log(result);
-        jQuery('#shop_added_msg_'+attr).html('[Added-'+qty+']');
+        // window.location.href=window.location.href; 
         var data=jQuery.parseJSON(result);
-        swal({
-          title: "Congratulations",
-          text: "Item Added to the cart",
-          icon: "success",
-        });
-        // totalCartBakery=jQuery('#totalCartBakery').html();
-        // totalCartBakery++;
-        jQuery('#totalCartBakery').html(data.totalCartBakery);
-        jQuery('#totalPrice').html(data.totalPrice);
-        // alert(data.totalCartBakery);
+        // alert("Successful Message");
+        // $_SESSION['MSG']="Your data is saved";
+        // Header( 'Location: front_cart.php');
+        window.location.reload();
+       
+        // jQuery('#totalCartBakery').html('['+data.totalCartBakery+']');
+        // jQuery('#totalPrice').html(' '+data.totalPrice+[' Taka']); 
       }
     });
   }else{
-    swal({
-      title: "Please",
-      text: "Select quantity and then add to cart",
-      icon: "error",
-    });
+    if(qty>0 ){
+      jQuery.ajax({
+        url:'manage_cart.php',
+        type:'post',
+        data:'qty='+qty+'&attr='+attr+'&type='+type,
+        success:function(result){
+          // console.log(result);
+          jQuery('#shop_added_msg_'+attr).html('[Added-'+qty+']');
+          var data=jQuery.parseJSON(result);
+          swal({
+            title: "Congratulations",
+            text: "Item Added to the cart",
+            icon: "success",
+          });
+          jQuery('#totalCartBakery').html('['+data.totalCartBakery+']');
+          jQuery('#totalPrice').html(' '+data.totalPrice+[' Taka']); 
+        }
+      });
+    }else{
+      swal({
+        title: "Please",
+        text: "Select quantity and then add to cart",
+        icon: "error",
+      });
+    }
   }
+  
+  
 }
-  function delete_cart(id){
+  function delete_cart(id,is_type){
     jQuery.ajax({
       url:'manage_cart.php',
       type:'post',
       data:'attr='+id+'&type=delete',
       success:function(result){
+        if(is_type=='load'){
+          window.location.reload();
+        }else{
+          var data=jQuery.parseJSON(result);
+        // console.log(data);
+          jQuery('#totalCartBakery').html('['+data.totalCartBakery+']');
+          jQuery('#totalPrice').html(' '+data.totalPrice+[' Taka']); 
+          jQuery('#shop_added_msg_'+id).html(' --- ');
+        }
         
       }
     });
   }
+  

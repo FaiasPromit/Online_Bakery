@@ -1,7 +1,7 @@
 <?php
 include('front_header.php');  
 ?>
-<div class="cart-section">
+<div class="cart-section" >
         <div>
 
             <?php if ($totalCartBakery > 0){?>
@@ -9,7 +9,7 @@ include('front_header.php');
 
 
             <div class="cart-table">
-            <?php foreach($cartArr as $item) {?>
+            <?php foreach($cartArr as $key=>$item) {?>
                 <div class="cart-table-row">
                     <div class="cart-table-row-left">
                         <a href=""><img src="<?php echo SITE_BAKERY_IMAGE.$item['image']?>" alt="item" class="cart-table-img"></a>
@@ -19,23 +19,25 @@ include('front_header.php');
                         </div>
                     </div>
             
-                    <div class="cart-table-row-right">
+                    <div class="cart-table-row-right" style=" width: 53%;">
                         <div class="cart-table-actions">
-                            <form action="{{route('cart.destroy', $item->rowId)}}" method="POST">
-                                <button type="submit" class="Button">Remove</button>
-                            </form>
+                            <div style=" cursor:pointer;color:black;width: 70px;height:23px; border: 1px solid black; padding-right:5px;background: #FF7F7F;text-align:center">
+                                <i class="deleteCart" onclick="delete_cart('<?php echo $key ?>','load')">Remove</i>
+                            </div>
 
 
                         </div>
                         <div>
-                        <!-- data-productquantity="10" -->
-                            <select class="quantity" data-id="{{ $item->rowId }}" >
-                                                                    <!-- <option {{$item->qty ==1 ? 'selected':''}}>1</option>
-                                                                    <option {{$item->qty ==2 ? 'selected':''}}>2</option>
-                                                                    <option {{$item->qty ==3 ? 'selected':''}}>3</option>
-                                                                    <option {{$item->qty ==4 ? 'selected':''}}>4</option>
-                                                                    <option {{$item->qty ==5 ? 'selected':''}}>5</option> -->
+                            <select id="qty<?php echo $key ?>" style="cursor:pointer;color:black;width: 80px;height:23px; border: 1px solid black; padding-right:5px;background: #90ee90;text-align:center">
+                                <option value="0">Quantity</option>
+                                <?php 
+                                for($i=1;$i<=10;$i++){
+                                    echo "<option>$i</option>";
+                                }?>
                             </select>
+                        </div>
+                        <div style=" cursor:pointer;color:black;width: 70px;height:23px; border: 1px solid black; padding-right:5px;background: #add8e6;text-align:center">
+                                <i onclick="add_to_cart('<?php echo $key ?>','update')">Update</i>
                         </div>
                         <div><?php echo $item['qty']*$item['price'] ?>Taka</div>
                         <?php $cart_subtotal=$cart_subtotal+($item['qty']*$item['price']);?>
@@ -43,16 +45,16 @@ include('front_header.php');
                         <?php $cart_total=$cart_subtotal+$cart_tax;?>
                         
                     </div>
-                </div> <!-- end cart-table-row -->
+                </div> 
             <?php } ?>
                 
-            </div> <!-- end cart-table -->
+            </div> 
 
             
                 <a href="#" class="have-code">Have a Code?</a>
 
                 <div class="have-code-container">
-                    <form action="https://laravelecommerceexample.ca/coupon" method="POST">
+                    <form action="" method="POST">
                         <input type="hidden" name="_token" value="S35jzNgDcuxmS0S4zU3WPBwuxbQ4Si6BMWesjRhK">
                         <input type="text" name="coupon_code" id="coupon_code">
                         <button type="submit" class="button button-plain">Apply</button>
@@ -79,14 +81,14 @@ include('front_header.php');
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="{{route('layout.shop')}}" class="button">Continue Shopping</a>
+                <a href="front_shop.php" class="button">Add More Items to Cart</a>
                 <a href="{{route('checkout')}}" class="button">Proceed to Checkout</a>
             </div>
 
             <?php }else{ ?>
                 <h3>No items in Cart</h3>
                 <div class="cart-buttons">
-                    <a href="{{route('layout.shop')}}" class="button">Continue Shopping</a>
+                    <a href="front_shop.php" class="button">Add More Items to Cart</a>
                 </div>
                 
             <?php }?>

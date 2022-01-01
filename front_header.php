@@ -15,6 +15,9 @@ foreach ($cartArr as $list){
 // unset($_SESSION['cart']);
 
 // prx($cartArr);
+if(isset($_SESSION['MSG'])){
+  echo $_SESSION['MSG'];
+  }
 ?>
 <!doctype html>
 <html>
