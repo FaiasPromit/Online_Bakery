@@ -1,8 +1,5 @@
 <?php
     include('front_header.php');
-    include('database.inc.php');
-    include('function.inc.php');
-    include('constant.inc.php');
 ?>
     <div class="main-login">
         <p class="sign_in-text" >Register Page</p>

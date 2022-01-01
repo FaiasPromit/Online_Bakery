@@ -50,6 +50,7 @@ li:hover{
     transition: all 0.3s ease;
 }
 
+
 .header-contents{
     display: flex;
     justify-content: space-between;
@@ -215,7 +216,6 @@ li:hover{
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 60px 30px;
     }
-  
     .products-section .products .product img {
       height:15rem;
       width:20rem;
@@ -235,8 +235,13 @@ li:hover{
     
     .products-section .products .product-price {
       color: #919191;
+      text-align:center;
     }
     .products-section .products .product .product-name{
+        color:gray;
+        /* text-align:center; */
+    }
+    .product-quantity{
         color:gray;
     }
     .products-section .products .product .product-name:hover{
@@ -253,6 +258,7 @@ li:hover{
         color:crimson;
         font-size: 2rem;
     }
+    
     
     
     

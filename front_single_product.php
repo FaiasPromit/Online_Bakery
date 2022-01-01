@@ -1,5 +1,8 @@
 <?php
 include('front_header.php');
+include('database.inc.php');
+include('function.inc.php');
+include('constant.inc.php');
 $product_res=mysqli_query($con,"select * from bakery where status=1 order by rand() limit 5");
 ?>
     <div class="main">
