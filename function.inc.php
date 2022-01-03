@@ -100,6 +100,28 @@
         }
         
     }
-    
-    
+    function getUserDetailById(){
+        
+        global $con;
+        $data['name']='';
+        $data['email']='';
+        $data['mobile']='';
+        if(isset($_SESSION['FOOD_USER_ID'])){
+        $uid=$_SESSION['FOOD_USER_ID'];
+        $row=mysqli_fetch_assoc(mysqli_query($con,"select * from user where id='$uid'"));
+        $data['name']=$row['name'];
+        $data['email']=$row['email'];
+        $data['mobile']=$row['mobile'];
+    }
+    return $data;
+}
+function emptyCart(){
+	if(isset($_SESSION['FOOD_USER_ID'])){
+		global $con;
+		$res=mysqli_query($con,"delete from bakery_cart where user_id=".$_SESSION['FOOD_USER_ID']);
+	}else{
+		unset($_SESSION['cart']);
+	}
+}
+        
 ?>

@@ -13,6 +13,11 @@ foreach ($cartArr as $list){
   $totalPrice=$totalPrice+($list['qty']*$list['price']);
 }
 // unset($_SESSION['cart']);
+if(isset($_SESSION['FOOD_USER_ID'])){
+  $proceed_to_checkout=1;
+}else{
+  $proceed_to_checkout=0;
+}
 
 // prx($cartArr);
 if(isset($_SESSION['MSG'])){
@@ -31,6 +36,7 @@ if(isset($_SESSION['MSG'])){
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <link rel="stylesheet" type="text/css" href="./login.css" />
     <link rel="stylesheet" type="text/css" href="./cart.css" />
+    <link rel="stylesheet" type="text/css" href="./checkout2.css" />
    
   </head>
   <body class="body">
