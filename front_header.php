@@ -3,6 +3,7 @@ session_start();
 include('database.inc.php');
 include('function.inc.php');
 include('constant.inc.php');
+include('smtp/PHPMailerAutoload.php');
 $cartArr=getUserFullCart();
 $totalCartBakery=count($cartArr);
 $totalPrice=0;
@@ -37,6 +38,7 @@ if(isset($_SESSION['MSG'])){
     <link rel="stylesheet" type="text/css" href="./login.css" />
     <link rel="stylesheet" type="text/css" href="./cart.css" />
     <link rel="stylesheet" type="text/css" href="./checkout2.css" />
+    <link rel="stylesheet" type="text/css" href="./thankyou.css" />
    
   </head>
   <body class="body">

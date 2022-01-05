@@ -21,6 +21,36 @@
         $str=mysqli_real_escape_string($con,$str);
         return $str;
     }
+    function rand_str(){
+        $str=str_shuffle("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+        return $str=substr($str,0,15);    
+    }
+    function send_email($email,$html,$subject){
+        $mail=new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host="smtp.gmail.com";
+        $mail->Port=587;
+        $mail->SMTPSecure="tls";
+        $mail->SMTPAuth=true;
+        $mail->Username="faiassatter.bus@gmail.com";
+        $mail->Password="Hacked.1";
+        $mail->setFrom("faiassatter.bus@gmail.com");
+        $mail->addAddress($email);
+        $mail->IsHTML(true);
+        $mail->Subject=$subject;
+        $mail->Body=$html;
+        $mail->SMTPOptions=array('ssl'=>array(
+            'verify_peer'=>false,
+            'verify_peer_name'=>false,
+            'allow_self_signed'=>false
+        ));
+        if($mail->send()){
+            //echo "done";
+        }else{
+            //echo "Error occur";
+        }
+    }
+
     function getUserCart(){
         global $con;
         $arr=array();

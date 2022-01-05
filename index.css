@@ -228,8 +228,8 @@ li:hover{
       position:relative;
     }
     .products-section .products .product img:hover{
-        height:16rem;
-        width:22rem;
+        height:15rem;
+        width:20rem;
         opacity: 1;
     }
     

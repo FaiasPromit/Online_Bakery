@@ -1,17 +1,21 @@
 jQuery('#id_form_register').on('submit',function(e){
   jQuery('.error_field').html('');
+  jQuery('#register_submit').attr('disabled',true);
+  jQuery('#form_msg').html('Please wait...');
   jQuery.ajax({
     url:'front_register_submit.php',
     type:'post',
     data:jQuery('#id_form_register').serialize(),
     success:function(result){
+      jQuery('#form_msg').html('');
+      jQuery('#register_submit').attr('disabled',false);
       var data=jQuery.parseJSON(result);
       if(data.status=='error'){
         jQuery('#'+data.field).html(data.msg);
       }
       if(data.status=='success'){
-        window.alert('Congratulations!! Account created. Press OK to continue');
-        window.location.href='front_index.php';
+        jQuery('#form_msg').html('Thank you for registering. Please check your email to verify your email id.');
+        // window.location.href='front_index.php';
       }
     }
   });
@@ -29,7 +33,26 @@ jQuery('#frmLogin').on('submit',function(e){
         jQuery('#form_login_msg').html(data.msg);
       }
       if(data.status=='success'){
-        window.history.back();
+        window.location.href='front_index.php';
+      }
+    }
+  });
+  e.preventDefault();
+});
+jQuery('#frmForgotPassword').on('submit',function(e){
+  jQuery('#forgot_submit').attr('disabled',true);
+  jQuery('.login_field').html('');
+  jQuery.ajax({
+    url:'front_register_submit.php',
+    type:'post',
+    data:jQuery('#frmForgotPassword').serialize(),
+    success:function(result){
+      var data=jQuery.parseJSON(result);
+      if(data.status=='error'){
+        jQuery('#form_forgot_msg').html(data.msg);
+      }
+      if(data.status=='success'){
+        jQuery('#form_forgot_msg').html(data.msg);
       }
     }
   });

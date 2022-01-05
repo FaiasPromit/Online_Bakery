@@ -17,7 +17,7 @@
             <input type="checkbox">
             <label>Remember Me</label>
         </span>
-        <p class="forgot" ><a href="#">Forgot Password?</p>   
+        <p class="forgot" ><a href="front_forgot_password.php">Forgot Password?</p>   
         <a href="front_register.php" class="submit">Create a New Account!!</a>        
     </div>
 <?php

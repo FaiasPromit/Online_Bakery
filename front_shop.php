@@ -10,6 +10,8 @@ $product_sql.=" order by bakery desc";
 $product_res=mysqli_query($con,$product_sql);
 $cat_res=mysqli_query($con,"select * from category where status=1 order by order_number desc");
 $cat_name_res="";
+// $results_per_page = 12;
+// $number_of_result = mysqli_num_rows($result);   
 
 ?>
     <div class="products-section">

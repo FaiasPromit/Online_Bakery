@@ -13,11 +13,12 @@ if(isset($_POST['place_order'])){
     values('".$_SESSION['FOOD_USER_ID']."','$checkout_name','$checkout_email','$checkout_mobile','$checkout_address','$cart_total','$checkout_zip','1','pending','1','$added_on')";
     mysqli_query($con,$sql);
     $insert_id=mysqli_insert_id($con);
+    $_SESSION['ORDER_ID']=$insert_id;
     foreach($cartArr as $key=>$val){
         mysqli_query($con,"insert into order_detail(order_id,bakery_id,price,qty) values('$insert_id','$key','".$val['price']."','".$val['qty']."')");
     }
     emptyCart();
-    redirect('success');
+    redirect('front_thanks.php');
 }
 ?>
 <div class="container">
@@ -51,9 +52,9 @@ if(isset($_POST['place_order'])){
                             <input type="text" class="form-control" id="phone" name="checkout_mobile" value="<?php echo $userArr['mobile']?>" required>
                         </div>
                         
-                        <input type="hidden" class="form-control" id="subtotal" name="subtotal" value="{{Cart::subtotal()}}">
+                        <!-- <input type="hidden" class="form-control" id="subtotal" name="subtotal" value="{{Cart::subtotal()}}">
                         <input type="hidden" class="form-control" id="tax" name="tax" value="{{Cart::tax()}}">
-                        <input type="hidden" class="form-control" id="total" name="total" value="{{Cart::total()}}">
+                        <input type="hidden" class="form-control" id="total" name="total" value="{{Cart::total()}}"> -->
                         <h5>You will be charged on delivery. Make sure to keep the money with you.</h5>
                         <h5>Happy Shopping.</h5>
                         <br>
