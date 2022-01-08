@@ -27,6 +27,37 @@ $product_res=mysqli_query($con,"select * from bakery where status=1 order by ran
                     <p><?php echo $product_row['bakery'] ?></p>
                     </a>
                     <p><?php echo $product_row['price'] .' Taka'?></p>
+                    <div class="product-quantity">
+                            <select name="" id="qty<?php echo $product_row['id'] ?>" class="product-quantity-select" style="cursor:pointer; 
+                                                                                                                            color:black; 
+                                                                                                                            width: 100%;    
+                                                                                                                            border: 1px solid black; 
+                                                                                                                            padding-top: 3px;
+                                                                                                                            background: #D3D3D3; 
+                                                                                                                            margin-bottom:3px;">
+                                <option value="0">Quantity</option>
+                                <?php 
+                                for($i=1;$i<=10;$i++){
+                                    echo "<option>$i</option>";
+                                }?>
+                            </select>
+                    </div>
+                    <div style="display: flex; flex-direction: row; align-items: stretch;  justify-content: flex-start;">
+                        <div style=" cursor:pointer;color:black;width: 30%;height:23px; border: 1px solid black; padding-right:5px; margin-top: 3px;background: #add8e6; margin-right:3px;text-align:center">
+                            <i class="addToCart"  onclick="add_to_cart('<?php echo $product_row['id'] ?>','add')">Add to Cart</i>
+                        </div>
+                        <div style=" cursor:pointer;color:black;width: 27%;height:23px; border: 1px solid black; padding-right:5px; margin-top: 3px;background: #FF7F7F;margin-left:3px;margin-right:3px;text-align:center">
+                            <i class="deleteCart"  onclick="delete_cart('<?php echo $product_row['id'] ?>')">Remove</i>
+                        </div>
+                        <div id="firstTimeAddedShow" style=" cursor:pointer;color:black;width: 43%; height:23px;border: 1px solid black; padding-right:5px; margin-top: 3px;background: #90ee90;margin-left:3px;text-align:center">
+                        <?php 
+                            $added_msg=" --- ";
+                            if(array_key_exists($product_row['id'],$cartArr)){
+                            $added_qty=getUserFullCart($product_row['id']);
+                            $added_msg="Added to Cart - $added_qty";}
+                            echo "<span id='shop_added_msg_".$product_row['id']."'>".$added_msg."</span> ";                                ?>
+                        </div>
+                    </div>
                 </div>
                 <?php }?>
             </div>

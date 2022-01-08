@@ -24,6 +24,7 @@ if(isset($_SESSION['FOOD_USER_ID'])){
 if(isset($_SESSION['MSG'])){
   echo $_SESSION['MSG'];
   }
+
 ?>
 <!doctype html>
 <html>

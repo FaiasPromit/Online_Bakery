@@ -14,11 +14,13 @@ if(isset($_POST['place_order'])){
     mysqli_query($con,$sql);
     $insert_id=mysqli_insert_id($con);
     $_SESSION['ORDER_ID']=$insert_id;
+    $_SESSION['ORDER_EMAIL']=$checkout_email;
     foreach($cartArr as $key=>$val){
         mysqli_query($con,"insert into order_detail(order_id,bakery_id,price,qty) values('$insert_id','$key','".$val['price']."','".$val['qty']."')");
     }
+    // $order_email=$checkout_email;
     emptyCart();
-    redirect('front_thanks.php');
+    redirect('front_thanks.php?');
 }
 ?>
 <div class="container">

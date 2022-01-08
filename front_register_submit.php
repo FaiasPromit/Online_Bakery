@@ -43,6 +43,7 @@
                 if(password_verify($password,$dbpassword)){
                     $_SESSION['FOOD_USER_ID']=$row['id'];
                     $_SESSION['FOOD_USER_NAME']=$row['name'];
+                    // $_SESSION['FOOD_USER_EMAIL']=$row['email'];
                     $arr=array('status'=>'success','msg'=>'');
                     if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0){
                         foreach($_SESSION['cart'] as $key=>$val){
