@@ -127,4 +127,28 @@ function add_to_cart(id,type){
       }
     });
   }
-  
+
+
+  jQuery('#frmProfile').on('submit',function(e){
+    jQuery('#profile_submit').attr('disabled',true);
+    jQuery('#form_msg').html('Please wait...');
+    jQuery.ajax({
+      url:'update_profile.php',
+      type:'post',
+      data:jQuery('#frmProfile').serialize(),
+      success:function(result){
+        jQuery('#form_msg').html('');
+        swal({
+          title: "Congratulations",
+          text: "Profile has been updated",
+          icon: "success",
+        });
+        jQuery('#profile_submit').attr('disabled',false);
+        // var data=jQuery.parseJSON(result);
+        // if(data.status=='success'){
+        //   // jQuery('#form_msg').html(data.msg);
+        // }
+      }
+    });
+    e.preventDefault();
+  });

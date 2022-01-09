@@ -52,7 +52,7 @@ if(isset($_SESSION['MSG'])){
           <a href="front_cart.php"><div class="header-top__links--text" style="color:white;">Cart <span id="totalCartBakery"><sup> <?php echo "[".$totalCartBakery."]"?></span> </sup><span id="totalPrice"><?php echo $totalPrice?> Taka</span></div></a> 
           <?php
           if(isset($_SESSION['FOOD_USER_NAME'])){?>
-            <div class="header-top__links--text"> Profile of <?php echo $_SESSION['FOOD_USER_NAME'] ?></div>
+            <a href="front_profile.php" style="color:white;"><div class="header-top__links--text"> Profile of <?php echo $_SESSION['FOOD_USER_NAME'] ?></div></a> 
             <a href="logout.php" style="color:white;"><div class="header-top__links--text" style="color:white;">LOGOUT</div></a>
           <?php }else{?>
           <a href="front_register.php" style="color:white;"><div class="header-top__links--text" style="color:white;">SIGNUP</div></a>

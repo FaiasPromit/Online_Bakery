@@ -14,7 +14,7 @@ if(!isset($_SESSION['ORDER_ID'])){
 
             <?php 
             $html="Congratulations on placing your order. Your ordered bakeries will reach your doorstep in 30-45 minutes. Your Order id is #".$_SESSION['ORDER_ID'];
-            send_email($_SESSION['ORDER_EMAIL'],'$html','Your Order has been placed'); ?>
+            send_email($_SESSION['ORDER_EMAIL'],$html,'Your Order has been placed'); ?>
             <h3></h3>
             <br>
             <div>

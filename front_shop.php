@@ -16,12 +16,15 @@ $cat_name_res="";
 ?>
     <div class="products-section">
             <div class="sidebar">
-                <h3><a href="front_shop.php"> All Categories</a></h3>
+                <h3><a href="front_shop.php" class="button"> All Categories</a></h3>
                 <ul>
                     <?php while($cat_row=mysqli_fetch_assoc($cat_res)){?>
                         <li><a href="front_shop.php?cat_id=<?php echo $cat_row['id']?>"><?php echo $cat_row['category']?></a></li>
                     <?php }?>
                 </ul>
+                <br>
+                <br>
+                <a href="front_shop.php" class="button">Go to Cart</a>    
             </div>
             <div>
                 <?php if($cat_id==""){?>
@@ -32,6 +35,7 @@ $cat_name_res="";
                     while ($cat_row=mysqli_fetch_assoc($cat_name_res)){?>
                         <h1><?php echo $cat_row['category']?></h1>
                     <?php }}?>
+                    
                     
                 
                 <div class="products">
