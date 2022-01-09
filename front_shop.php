@@ -24,7 +24,7 @@ $cat_name_res="";
                 </ul>
                 <br>
                 <br>
-                <a href="front_shop.php" class="button">Go to Cart</a>    
+                <a href="front_cart.php" class="button">Go to Cart</a>    
             </div>
             <div>
                 <?php if($cat_id==""){?>

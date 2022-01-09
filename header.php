@@ -30,8 +30,11 @@
                   <li class="menu-item-has-children dropdown">
                      <a href="user.php" > Users</a>
                   </li>
-				  <li class="menu-item-has-children dropdown">
+				          <li class="menu-item-has-children dropdown">
                      <a href="bakery.php" > Bakeries</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="order.php" > Orders</a>
                   </li>
                </ul>
             </div>

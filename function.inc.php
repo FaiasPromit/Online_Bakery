@@ -153,5 +153,20 @@ function emptyCart(){
 		unset($_SESSION['cart']);
 	}
 }
+function getOrderDetails($oid){
+	global $con;
+	$sql="select order_detail.price,order_detail.qty,bakery.id,bakery.bakery
+	from order_detail,bakery
+	WHERE
+	order_detail.order_id=$oid AND
+	order_detail.bakery_id=bakery.id";
+	$data=array();
+	$res=mysqli_query($con,$sql);
+	while($row=mysqli_fetch_assoc($res)){
+		$data[]=$row;
+	}
+	return $data;
+	
+}
         
 ?>

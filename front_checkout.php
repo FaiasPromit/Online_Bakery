@@ -1,7 +1,9 @@
 <?php
 include('front_header.php');  
 $userArr=getUserDetailById();
-// prx($userArr);
+$cart_total=$totalPrice/10;
+$cart_total=$totalPrice+$cart_total;
+// prx($cart_total);
 if(isset($_POST['place_order'])){
     $checkout_name=get_safe_value($_POST['checkout_name']);
 	$checkout_email=get_safe_value($_POST['checkout_email']);
@@ -60,7 +62,9 @@ if(isset($_POST['place_order'])){
                         <h5>You will be charged on delivery. Make sure to keep the money with you.</h5>
                         <h5>Happy Shopping.</h5>
                         <br>
+                        <?php if($cart_total!=0){ ?>
                         <button type="submit" class="button-primary full-width" name="place_order">Complete Order</button>
+                        <?php } ?>
                     </form>
                 </div>
                 <div class="checkout-table-container">

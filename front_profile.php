@@ -23,9 +23,8 @@
             <input type="hidden" name="type" value="profile" id="type">
             <button class="submit" type="submit" id="profile_submit" style="background: rgb(201, 198, 198);">Save</button>
             <div class="error_field" style="align-self:center;font-weight: bold;color: green;" id="form_msg"></div>
-        </form>
-        <p class="forgot" ><a href="#">Forgot Password?</p>   
-        <a href="front_login.php" class="submit">Already have an account??</a>        
+        </form>  
+        <a href="front_change_password.php" class="submit">Change Password</a>        
     </div>
 <?php
 include('front_footer.php');

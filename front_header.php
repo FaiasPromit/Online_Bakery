@@ -40,39 +40,46 @@ if(isset($_SESSION['MSG'])){
     <link rel="stylesheet" type="text/css" href="./cart.css" />
     <link rel="stylesheet" type="text/css" href="./checkout2.css" />
     <link rel="stylesheet" type="text/css" href="./thankyou.css" />
+<!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
    
   </head>
   <body class="body">
     <div class="header">
       <div class="header-top">
-        <p><a href="front_index.php" style="color:white;">Home</a> </p>
+        <p><a href="front_index.php" style="color:white;font-family:Raleway;">Home</a> </p>
         <div class="header-top__links">
-          <a href="front_shop.php"><div class="header-top__links--text" style="color:white;">SHOP</div></a>
+          <a href="front_shop.php"><div class="header-top__links--text" style="color:white;font-family:Raleway;">SHOP</div></a>
           <div class="header-top__links--text">ABOUT</div>
-          <a href="front_cart.php"><div class="header-top__links--text" style="color:white;">Cart <span id="totalCartBakery"><sup> <?php echo "[".$totalCartBakery."]"?></span> </sup><span id="totalPrice"><?php echo $totalPrice?> Taka</span></div></a> 
+          <a href="front_cart.php"><div class="header-top__links--text" style="color:white;font-family:Raleway;">Cart <span id="totalCartBakery"><sup> <?php echo "[".$totalCartBakery."]"?></span> </sup><span id="totalPrice"><?php echo $totalPrice?> Taka</span></div></a> 
           <?php
           if(isset($_SESSION['FOOD_USER_NAME'])){?>
-            <a href="front_profile.php" style="color:white;"><div class="header-top__links--text"> Profile of <?php echo $_SESSION['FOOD_USER_NAME'] ?></div></a> 
-            <a href="logout.php" style="color:white;"><div class="header-top__links--text" style="color:white;">LOGOUT</div></a>
+            <a href="front_profile.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text"> Profile of <?php echo $_SESSION['FOOD_USER_NAME'] ?></div></a> 
+            <a href="logout.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text" style="color:white;">LOGOUT</div></a>
           <?php }else{?>
-          <a href="front_register.php" style="color:white;"><div class="header-top__links--text" style="color:white;">SIGNUP</div></a>
-          <a href="front_login.php" style="color:white;"><div class="header-top__links--text" style="color:white;">LOGIN</div></a>
+          <a href="front_register.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text" style="color:white;">SIGNUP</div></a>
+          <a href="front_login.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text" style="color:white;">LOGIN</div></a>
           <?Php } ?>
         </div>
       </div>
 
       <div class="header-contents">
         <div class="header-contents__left">
-          <h1>Bakery Shop</h1>
-          <p>An online bakery shop</p>
+          <h1 style="font-family:Raleway;">Bakery Shop</h1>
+          <p style="font-family:Raleway;">An online bakery shop</p>
+          <?php
+          if(isset($_SESSION['FOOD_USER_NAME'])){?>
           <div class="header-contents__left--button">
-            <div class="header-contents__left--button view">Button 1</div>
+            <a href="front_profile.php"><div class="header-contents__left--button view" style="font-family:Raleway;">Change User Info</div></a>
             <div class="spacer"></div>
-            <div class="header-contents__left--button view">Button 2</div>
+            <a href="front_change_password.php"><div class="header-contents__left--button view" style="font-family:Raleway;">Change Password</div></a>
           </div>
+          <?php } ?>
         </div>
         <div class="header-contents__right">
-            <img src="images/main image.jpg" alt="image" class="header-contents__right--img">
+            <img src="images/main image.jpg" alt="image" class="header-contents__right--img" style="opacity:80%;">
         </div>
       </div>
     </div>

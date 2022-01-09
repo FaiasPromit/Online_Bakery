@@ -5,7 +5,7 @@ $product_res=mysqli_query($con,"select * from bakery where status=1 order by ran
     <div class="main">
         <div class="main-top">
             <h1>Bakery Shop</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam officia placeat nobis iusto enim 
+            <p style="font-family:Raleway;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam officia placeat nobis iusto enim 
                 unde dignissimos quidem, cum tempora aspernatur ipsam iure perferendis facilis magni, quo dolorum 
                 asperiores eos. Doloremque!Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" 
                 (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very 

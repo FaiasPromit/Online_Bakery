@@ -42,6 +42,7 @@ jQuery('#frmLogin').on('submit',function(e){
 jQuery('#frmForgotPassword').on('submit',function(e){
   jQuery('#forgot_submit').attr('disabled',true);
   jQuery('.login_field').html('');
+  jQuery('#form_forgot_msg').html('Please Wait ...');
   jQuery.ajax({
     url:'front_register_submit.php',
     type:'post',
@@ -137,17 +138,42 @@ function add_to_cart(id,type){
       type:'post',
       data:jQuery('#frmProfile').serialize(),
       success:function(result){
-        jQuery('#form_msg').html('');
-        swal({
-          title: "Congratulations",
-          text: "Profile has been updated",
-          icon: "success",
+        var data=jQuery.parseJSON(result);
+        if(data.status=='success'){
+          swal("Congratulations,Your Account has been updated")
+          .then((value) => {
+          window.location.reload();
         });
+          
+        }
         jQuery('#profile_submit').attr('disabled',false);
-        // var data=jQuery.parseJSON(result);
-        // if(data.status=='success'){
-        //   // jQuery('#form_msg').html(data.msg);
-        // }
+        jQuery('#form_msg').html(data.msg);
+      }
+    });
+    e.preventDefault();
+  });
+  jQuery('#frmPassword').on('submit',function(e){
+    jQuery('#password_form_msg').html('Please wait...');
+    jQuery.ajax({
+      url:'update_profile.php',
+      type:'post',
+      data:jQuery('#frmPassword').serialize(),
+      success:function(result){
+        var data=jQuery.parseJSON(result);
+        if(data.status=='success'){
+          swal({
+            title: "Congratulations",
+            text: "Profile has been updated",
+            icon: "success",
+          });
+          jQuery('#password_form_msg').html(data.msg);
+          jQuery('#password_form_msg_2').html('');
+        }else{
+          jQuery('#password_form_msg_2').html(data.msg);
+          jQuery('#password_form_msg').html('');
+          swal("Error Message",data.msg,"error");
+        }
+        
       }
     });
     e.preventDefault();
