@@ -45,10 +45,18 @@
                     $_SESSION['FOOD_USER_NAME']=$row['name'];
                     // $_SESSION['FOOD_USER_EMAIL']=$row['email'];
                     $arr=array('status'=>'success','msg'=>'');
+                    if(!empty($_POST["remember"])) {
+                        setcookie ("email",$email,time()+ 3600);
+                        setcookie ("password",$password,time()+ 3600);
+                        setcookie ("id",$row['id'],time()+ 3600);
+                        setcookie ("name",$row['name'],time()+ 3600);
+                        // $arr=array('status'=>'error','msg'=>'Password Incorrect :@@');
+                    }
                     if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0){
                         foreach($_SESSION['cart'] as $key=>$val){
                             manageUserCart($_SESSION['FOOD_USER_ID'],$val['qty'],$key);
                     }
+                    
                 }
                 }else{
                     $arr=array('status'=>'error','msg'=>'Password Incorrect :@@');

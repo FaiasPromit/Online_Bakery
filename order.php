@@ -18,7 +18,7 @@ $res=mysqli_query($con,$sql);
                         <tr>
                             <th width="5%">Order Id</th>
                             <th width="20%">Name/Email/Mobile</th>
-							<th width="20%">Address/Zipcode</th>
+														<th width="20%">Address/Zipcode</th>
                             <th width="5%">Price</th>
                             <th width="10%">Order Details</th>
                             <th width="10%">Payment Status</th>
@@ -32,7 +32,7 @@ $res=mysqli_query($con,$sql);
 						while($row=mysqli_fetch_assoc($res)){
 						?>
 						<tr>
-                            <td>
+              <td>
 								<div class="div_order_id">
 									<a href="order_detail.php?id=<?php echo $row['id']?>"><?php echo $row['id']?></a>
 								</div>

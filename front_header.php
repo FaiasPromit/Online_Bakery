@@ -4,6 +4,14 @@ include('database.inc.php');
 include('function.inc.php');
 include('constant.inc.php');
 include('smtp/PHPMailerAutoload.php');
+
+
+if((isset($_COOKIE["email"])) && !(isset($_SESSION['FOOD_USER_ID'])) ){
+  $_SESSION['FOOD_USER_ID']=$_COOKIE["id"];
+  $_SESSION['FOOD_USER_NAME']=$_COOKIE["name"];
+}
+
+
 $cartArr=getUserFullCart();
 $totalCartBakery=count($cartArr);
 $totalPrice=0;
@@ -49,14 +57,14 @@ if(isset($_SESSION['MSG'])){
   <body class="body">
     <div class="header">
       <div class="header-top">
-        <p><a href="front_index.php" style="color:white;font-family:Raleway;">Home</a> </p>
+        <p><a href="front_index.php" style="color:white;font-family:Raleway;">Home</a></p>
         <div class="header-top__links">
           <a href="front_shop.php"><div class="header-top__links--text" style="color:white;font-family:Raleway;">SHOP</div></a>
           <div class="header-top__links--text">ABOUT</div>
           <a href="front_cart.php"><div class="header-top__links--text" style="color:white;font-family:Raleway;">Cart <span id="totalCartBakery"><sup> <?php echo "[".$totalCartBakery."]"?></span> </sup><span id="totalPrice"><?php echo $totalPrice?> Taka</span></div></a> 
           <?php
           if(isset($_SESSION['FOOD_USER_NAME'])){?>
-            <a href="front_profile.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text"> Profile of <?php echo $_SESSION['FOOD_USER_NAME'] ?></div></a> 
+            <a href="front_order_history.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text"> Order History</div></a> 
             <a href="logout.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text" style="color:white;">LOGOUT</div></a>
           <?php }else{?>
           <a href="front_register.php" style="color:white; font-family:Raleway;"><div class="header-top__links--text" style="color:white;">SIGNUP</div></a>
@@ -68,7 +76,11 @@ if(isset($_SESSION['MSG'])){
       <div class="header-contents">
         <div class="header-contents__left">
           <h1 style="font-family:Raleway;">Bakery Shop</h1>
+          <?php if(isset($_SESSION['FOOD_USER_NAME'])){?>
+          <p style="font-family:Raleway;"><b>Welcome <?php echo $_SESSION['FOOD_USER_NAME'] ?></b></p>
+          <?php }else{ ?>
           <p style="font-family:Raleway;">An online bakery shop</p>
+          <?php } ?>
           <?php
           if(isset($_SESSION['FOOD_USER_NAME'])){?>
           <div class="header-contents__left--button">

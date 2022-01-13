@@ -1,5 +1,8 @@
 <?php
     include('front_header.php');
+    if(isset($_SESSION['FOOD_USER_ID'])){
+        redirect('front_index.php');
+    }
 ?>
     <div class="main-login">
         <p class="sign_in-text" >Register Page</p>

@@ -34,6 +34,7 @@ jQuery('#frmLogin').on('submit',function(e){
       }
       if(data.status=='success'){
         window.location.href='front_index.php';
+        // jQuery('#form_login_msg').html(data.msg);
       }
     }
   });
@@ -178,3 +179,4 @@ function add_to_cart(id,type){
     });
     e.preventDefault();
   });
+  

@@ -82,11 +82,11 @@ include('front_header.php');
 
             <div class="cart-buttons">
                 <a href="front_shop.php" class="button">Add More Items to Cart</a>
-                <div style=" cursor:pointer;color:black;width: 150px;height:23px; border: 1px solid black; padding-right:5px;background: gray;text-align:center">
+                <div style="margin-top: 12px;">
                     <?php if($proceed_to_checkout==1){?>
-                    <a href="front_checkout.php">Proceed to Checkout</a>
+                    <a href="front_checkout.php" class="button">Proceed to Checkout</a>
                     <?php }else{?>
-                    <a href="front_login.php" >Proceed to Checkout</a>
+                    <a href="front_login.php" class="button">Proceed to Checkout</a>
                     <?php } ?>
                 </div>
             </div>

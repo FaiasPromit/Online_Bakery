@@ -46,9 +46,9 @@ $cat_name_res="";
                         <a href="#"><img src="<?php echo SITE_BAKERY_IMAGE.$product_row['image']?>" alt="item.png"></a>
                         <a href="#"><span class="product-name"><?php echo $product_row['bakery'] ?></span></a>
                         <div class="product-name" style="text-align:left;"><?php echo $product_row['price'] .' Taka'?></div>
-                        <!-- <div class="image-overlay">
+                        <div class="image-overlay">
                                 <p class="image-description"><?php echo $product_row['bakery_detail'] ?></p>
-                        </div> -->
+                        </div>
                         <div class="product-quantity">
                             <select name="" id="qty<?php echo $product_row['id'] ?>" class="product-quantity-select" style="cursor:pointer; 
                                                                                                                             color:black; 
