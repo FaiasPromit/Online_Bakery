@@ -52,12 +52,17 @@ jQuery('#frmForgotPassword').on('submit',function(e){
       var data=jQuery.parseJSON(result);
       if(data.status=='error'){
         jQuery('#form_forgot_msg').html(data.msg);
-      }
+        swal(data.msg)
+          .then((value) => {
+          window.location.reload();
+      });
+    }
       if(data.status=='success'){
         jQuery('#form_forgot_msg').html(data.msg);
       }
-    }
-  });
+    
+  }
+});
   e.preventDefault();
 });
 function add_to_cart(id,type){
@@ -123,7 +128,7 @@ function add_to_cart(id,type){
         // console.log(data);
           jQuery('#totalCartBakery').html('['+data.totalCartBakery+']');
           jQuery('#totalPrice').html(' '+data.totalPrice+[' Taka']); 
-          jQuery('#shop_added_msg_'+id).html(' --- ');
+          jQuery('#shop_added_msg_'+id).html(' Empty! ');
         }
         
       }
@@ -175,6 +180,33 @@ function add_to_cart(id,type){
           swal("Error Message",data.msg,"error");
         }
         
+      }
+    });
+    e.preventDefault();
+  });
+  jQuery('#frmReverification').on('submit',function(e){
+    jQuery('.form_reverification_msg_success').html('');
+    jQuery('#form_reverification_msg_error').html('');
+    jQuery('#reverification_submit').attr('disabled',true);
+    jQuery('#form_reverification_msg_success').html('Please wait...');
+    jQuery.ajax({
+      url:'front_register_submit.php',
+      type:'post',
+      data:jQuery('#frmReverification').serialize(),
+      success:function(result){
+        jQuery('#form_reverification_msg_success').html('');
+        jQuery('#form_reverification_msg_error').html('');
+        jQuery('#reverification_submit').attr('disabled',false);
+        var data=jQuery.parseJSON(result);
+        if(data.status=='error'){
+          jQuery('#form_reverification_msg_success').html('');
+          jQuery('#form_reverification_msg_error').html(data.msg);
+        }
+        if(data.status=='success'){
+          jQuery('#form_reverification_msg_error').html('');
+          jQuery('#form_reverification_msg_success').html('Verification link has been resent. Please check your email to verify your email id.');
+          // window.location.href='front_index.php';
+        }
       }
     });
     e.preventDefault();

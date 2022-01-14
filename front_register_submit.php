@@ -107,5 +107,27 @@
         }
         echo json_encode($arr);
     }
+    if($type=='reverification'){
+        $email=get_safe_value($_POST['reverify_email']);
+        $check=mysqli_num_rows(mysqli_query($con,"select * from user where email='$email'"));
+        $res=mysqli_query($con,"select * from user where email='$email'");
+        $status_check=mysqli_fetch_assoc($res);
+        if($check>0){
+            if($status_check['status']=="0"){
+                $rand_str=rand_str();
+                mysqli_query($con,"update user set rand_str='$rand_str' where email='$email'");
+                $html="http://127.0.0.1/onlinebakery/front_verify.php?id=".$rand_str;
+                send_email($email,$html,'Verify Your Email Id');
+                $arr=array('status'=>'success','msg'=>'');  
+            }else{
+                $arr=array('status'=>'error','msg'=>'Email Id is already verified'); 
+            }
+             
+        }
+        else{
+            $arr=array('status'=>'error','msg'=>'Please Register First'); 
+        }
+        echo json_encode($arr);
+    }
     
 ?>

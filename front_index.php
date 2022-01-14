@@ -22,12 +22,14 @@ $product_res=mysqli_query($con,"select * from bakery where status=1 order by ran
                 while($product_row=mysqli_fetch_assoc($product_res)){
                 ?>
                 <div class="main-top__grid item">
-                    <a href="">
-                    <img src="<?php echo SITE_BAKERY_IMAGE.$product_row['image']?>" alt="item.png">
-                    <p><?php echo $product_row['bakery'] ?></p>
-                    </a>
-                    <p><?php echo $product_row['price'] .' Taka'?></p>
-                    <div class="product-quantity">
+                    <div style="height:2rem;"></div>
+                        <div class="p-i-container-img" >
+                            <div class="p-i-container-des"><p><?php echo $product_row['bakery_detail'] ?></p></div>
+                            <img src="<?php echo SITE_BAKERY_IMAGE . $product_row['image'] ?>" alt="item.png">
+                        </div>
+                        <span class="product-name"><?php echo $product_row['bakery'] ?></span>
+                        <div class="product-price" style="text-align:left;"><?php echo $product_row['price'] . ' Taka' ?></div>
+                        <div class="product-quantity">
                             <select name="" id="qty<?php echo $product_row['id'] ?>" class="product-quantity-select" style="cursor:pointer; 
                                                                                                                             color:black; 
                                                                                                                             width: 100%;    
@@ -41,28 +43,31 @@ $product_res=mysqli_query($con,"select * from bakery where status=1 order by ran
                                     echo "<option>$i</option>";
                                 }?>
                             </select>
-                    </div>
-                    <div style="display: flex; flex-direction: row; align-items: stretch;  justify-content: flex-start;">
-                        <div style=" cursor:pointer;color:black;width: 30%;height:23px; border: 1px solid black; padding-right:5px; margin-top: 3px;background: #add8e6; margin-right:3px;text-align:center">
-                            <i class="addToCart"  onclick="add_to_cart('<?php echo $product_row['id'] ?>','add')">Add to Cart</i>
                         </div>
-                        <div style=" cursor:pointer;color:black;width: 27%;height:23px; border: 1px solid black; padding-right:5px; margin-top: 3px;background: #FF7F7F;margin-left:3px;margin-right:3px;text-align:center">
-                            <i class="deleteCart"  onclick="delete_cart('<?php echo $product_row['id'] ?>')">Remove</i>
+                        <div style="display: flex; flex-direction: row; align-items: stretch;  justify-content: flex-start;">
+                            <div class="product-cart-button">
+                                <i onclick="add_to_cart('<?php echo $product_row['id'] ?>','add')">Add to Cart</i>
+                            </div>
+                            <div class="product-cart-button remove">
+                                <i onclick="delete_cart('<?php echo $product_row['id'] ?>')">Remove</i>
+                            </div>
+                            <div class="product-cart-added ">
+                            <?php 
+                                $added_msg="Empty!";
+                                if(array_key_exists($product_row['id'],$cartArr)){
+                                $added_qty=getUserFullCart($product_row['id']);
+                                $added_msg="Added to Cart - $added_qty";}
+                                echo "<span id='shop_added_msg_".$product_row['id']."'>".$added_msg."</span> ";                                ?>
+                            </div>
                         </div>
-                        <div id="firstTimeAddedShow" style=" cursor:pointer;color:black;width: 43%; height:23px;border: 1px solid black; padding-right:5px; margin-top: 3px;background: #90ee90;margin-left:3px;text-align:center">
-                        <?php 
-                            $added_msg=" --- ";
-                            if(array_key_exists($product_row['id'],$cartArr)){
-                            $added_qty=getUserFullCart($product_row['id']);
-                            $added_msg="Added to Cart - $added_qty";}
-                            echo "<span id='shop_added_msg_".$product_row['id']."'>".$added_msg."</span> ";                                ?>
-                        </div>
-                    </div>
                 </div>
                 <?php }?>
+                
+            
             </div>
+            
                     
-            <div class="main-top__grid--button"><a href="front_shop.php">View more products</a> </div>
+            <a href="front_shop.php"><div class="main-top__grid--button">View more products </div></a>
         </div>
 
         <div class="main-bottom">

@@ -1,8 +1,8 @@
 
 .main-login {
-    background-color: rgba(172, 165, 165, 0.589);
+    background-color: #214252;
     width: 600px;
-    height: 650px;
+    height: 750px;
     margin: 7em auto;
     border-radius: 1.5em;
     display:flex;
@@ -11,34 +11,47 @@
     align-items: center;
     padding-bottom: 3rem;
     padding-top: 2rem;
+    color: whitesmoke;
 }
 
 .sign_in-text {
     padding-top: 40px;
-    color: black;
     font-weight: bold;
     font-size: 23px;
+    color: whitesmoke;
+}
+
+.input-field{
+    width: 90%;
+    color: whitesmoke;
+    border: 1.5px solid whitesmoke;
+    background-color: transparent;
+    border-radius: 8px;
+    text-align: center;
+    height: 50px;
+    box-sizing: border-box;
+    align-self: center;
 }
 
 .username {
-width: 90%;
+/* width: 90%;
 color: rgb(38, 50, 56);
 font-weight: 700;
 font-size: 14px;
 letter-spacing: 1px;
-background: rgb(201, 198, 198);
+background: transparent;
 padding: 10px 20px;
 border: none;
 border-radius: 2px;
 box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.404);
+border: 2px solid whitesmoke;
 margin-bottom: 50px;
 text-align: center;
 margin-bottom: 27px;
-align-self: center;
+align-self: center; */
 }
 .pass {
-width: 90%;
+/* width: 90%;
 color: rgb(38, 50, 56);
 font-weight: 700;
 font-size: 14px;
@@ -53,7 +66,26 @@ border: 2px solid rgba(0, 0, 0, 0.404);
 margin-bottom: 50px;
 text-align: center;
 margin-bottom: 0px;
-align-self: center;
+align-self: center; */
+}
+.login-button-new-i{
+    width: 90%;
+    background-color: #FF9A76 !important;
+    color: whitesmoke !important;
+    /* border: 2px solid #FF9A76 !important; */
+    display: flex !important;
+    border-radius: 8px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    height: 50px !important;
+    font-size: 1.3rem !important;
+    font-weight: 500 !important;
+    align-self: center !important;
+}
+.login-button-new-i:hover{
+    background-color: rgb(252, 129, 85) !important;
+    transition: all 0.3s ease ;
 }
 .pass2 {
     width: 90%;

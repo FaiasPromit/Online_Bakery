@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['FOOD_USER_ID']!=5){
+  redirect('front_index.php');
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -44,8 +51,7 @@
          <header id="header" class="header">
             <div class="top-left">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
-                  <a class="navbar-brand hidden" href="index.html"><img src="images/logo2.png" alt="Logo"></a>
+                  <a class="navbar-brand" href="index.php"><img src="images/footer image.jpg" alt="Logo"></a>
                   <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                </div>
             </div>
