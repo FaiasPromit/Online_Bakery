@@ -32,9 +32,9 @@
         $mail->Port=587;
         $mail->SMTPSecure="tls";
         $mail->SMTPAuth=true;
-        $mail->Username="faiassatter.bus@gmail.com";
-        $mail->Password="Hacked.1";
-        $mail->setFrom("faiassatter.bus@gmail.com");
+        $mail->Username="";
+        $mail->Password="";
+        $mail->setFrom("");
         $mail->addAddress($email);
         $mail->IsHTML(true);
         $mail->Subject=$subject;
