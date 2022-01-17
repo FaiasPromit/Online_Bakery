@@ -62,6 +62,7 @@
         return $arr;
 
     }
+    // user cart e koyta product added
     function manageUserCart($uid,$qty,$attr){
         global $con;
         $res=mysqli_query($con,"select * from bakery_cart where user_id='$uid' and bakery_id='$attr'");
@@ -74,12 +75,14 @@
           mysqli_query($con,"insert into bakery_cart(user_id,bakery_id,qty,added_on) values('$uid','$attr','$qty','$added_on')");
         }
     }
+    // eta diye cart_database e add deya hoy ekekta product
     function getBakeryFromCart($cartId){
         global $con;
         $res=mysqli_query($con,"select * from bakery where id='$cartId'");
         $row=mysqli_fetch_assoc($res);
         return $row;
     }
+    // cart er bakery_id theke bakery details ber kora
 
     function getUserFullCart($attr_id=''){
         $cartArr=array();
@@ -113,6 +116,7 @@
               return $cartArr;
           }
     }
+    // cartarray() er vitore bakery r shob details added
     function getBakeryPriceById($id){
         global $con;
         $res=mysqli_query($con,"select price from bakery where id='$id'");
@@ -130,6 +134,7 @@
         }
         
     }
+    // cart theke ekta bakery remove
     function getUserDetailById(){
         
         global $con;

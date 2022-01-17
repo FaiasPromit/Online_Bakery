@@ -43,10 +43,11 @@ if(isset($_POST['submit'])){
 			move_uploaded_file($_FILES['image']['tmp_name'],SERVER_BAKERY_IMAGE.$_FILES['image']['name']);
 			mysqli_query($con,"insert into bakery(category_id,bakery,bakery_detail,added_on,image,price) values('$category_id','$bakery','$bakery_detail','$added_on','$image','$price')");
 		}else{
+			$image=$_FILES['image']['name'];
 			if($image==""){
 				mysqli_query($con,"update bakery set category_id='$category_id', bakery='$bakery',bakery_detail='$bakery_detail',price='$price' where id='$id'");
 			}else{
-				$image=$_FILES['image']['name'];
+				
 				move_uploaded_file($_FILES['image']['tmp_name'],SERVER_BAKERY_IMAGE.$_FILES['image']['name']);
 				mysqli_query($con,"update bakery set category_id='$category_id', bakery='$bakery',bakery_detail='$bakery_detail',image='$image',price='$price' where id='$id'");
 			}

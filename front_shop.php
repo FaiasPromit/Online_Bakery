@@ -6,7 +6,7 @@ if (isset($_GET['cat_id']) && $_GET['cat_id'] > 0) {
     $cat_id = get_safe_value($_GET['cat_id']);
     $product_sql .= " and category_id='$cat_id' ";
 }
-$product_sql .= " order by bakery desc";
+$product_sql .= " order by rand()";
 $product_res = mysqli_query($con, $product_sql);
 $cat_res = mysqli_query($con, "select * from category where status=1 order by order_number desc");
 $cat_name_res = "";

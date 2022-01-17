@@ -1,14 +1,13 @@
-<?php
-include('database.inc.php');
-include('function.inc.php');
-include('constant.inc.php');
-include('header.php');
-session_start();
-// $order_status=get_safe_value($_POST['order_status']);
-// $payment_status=get_safe_value($_POST['payment_status']);
-// $order_id=get_safe_value($_POST['order_id']);
-// echo $order_status;
-echo "ol";
-if (isset($_POST['submit'])) {
-    echo "ok";}
-?>
+<!Doctype html>
+<html> 
+<label for="browser">Choose your browser from the list:</label>
+<input list="browsers" name="browser" id="browser">
+
+<datalist id="browsers">
+  <option value="Edge">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+</html>

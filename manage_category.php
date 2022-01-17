@@ -13,7 +13,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
 	$category=$row['category'];
 	$order_number=$row['order_number'];
 }
-
+// if er part e category add and else er part e category edit
 if(isset($_POST['submit'])){
 	$category=get_safe_value($_POST['category']);
 	$order_number=get_safe_value($_POST['order_number']);

@@ -28,7 +28,7 @@ if(isset($_SESSION['FOOD_USER_ID'])){
   $proceed_to_checkout=0;
 }
 
-// prx($cartArr);
+// prx($_SESSION['cart']);
 if(isset($_SESSION['MSG'])){
   echo $_SESSION['MSG'];
   }
